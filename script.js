@@ -53,3 +53,36 @@ window.onload = () => {
   typeWriter();
   createRain();
 };
+/// بيانات كل كرت
+const popupData = {
+ 0: {title: "مشاريعي", text: "هنا بعرض كل المشاريع اللي اشتغلت عليها. قريباً رابط GitHub لكل مشروع 🚀"},
+ 1: {title: "مهاراتي", text: "HTML, CSS, JavaScript, Python. ولسه أتعلم أشياء جديدة كل يوم 💻"},
+ 2: {title: "تواصل معي", text: "تقدر تتواصل عبر GitHub أو تنتظر أضيف البريد قريباً 📧"},
+ 3: {title: "نبذة عني", text: "أنا بلقاسم طريفي، مطور مبتدئ شغوف ببناء أشياء مفيدة على الويب ✨"}
+};
+
+// لما تضغط على الكرت
+document.querySelectorAll('.card').forEach((card, index) => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    document.getElementById('popup-title').textContent = popupData[index].title;
+    document.getElementById('popup-text').textContent = popupData[index].text;
+    document.getElementById('popup').style.display = 'flex';
+  });
+});
+
+// إغلاق النافذة
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+// إغلاق لو ضغطت خارج النافذة
+document.getElementById('popup').addEventListener('click', (e) => {
+  if(e.target.id === 'popup') closePopup();
+});
+// عداد الزيارات
+fetch('https://api.countapi.xyz/hit/trifibelkacem.github.io/visits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visits').textContent = data.value;
+  });

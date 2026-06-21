@@ -240,3 +240,65 @@ body.dark .card span {
 body.dark .drop {
   background: linear-gradient(transparent, #aaccff);
 }
+/* النافذة المنبثقة */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  animation: scaleUp 0.3s;
+}
+
+body.dark.popup-content {
+  background: #2a2a4a;
+  color: #e0e0e0;
+}
+
+.close-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0066cc;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
+@keyframes scaleUp { from {transform: scale(0.8)} to {transform: scale(1)} }
+.cv-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 25px;
+  background: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cv-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,102,204,0.4);
+}
+
+body.dark .cv-btn {
+  background: #4a7bff;
+}
