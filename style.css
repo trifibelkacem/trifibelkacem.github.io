@@ -1,0 +1,127 @@
+/* 1. الجسم + التوسيط + العرض الكامل */
+body {
+  background-color: #e8f4f8;
+  font-family: 'Cairo', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* يوسّط الكروت كلها */
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* 2. الكروت تتمدد وتتوسط */
+.card {
+  background: white;
+  padding: 25px;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 90%; /* ياخذ 90% من عرض الشاشة */
+  max-width: 700px; /* بس ما يتعدى 700px */
+}
+
+/* 3. أيقونات السوشيال */
+.card a {
+  display: inline-block;
+  margin: 15px;
+  font-size: 40px;
+  color: #2c3e50;
+  transition: 0.3s;
+}
+
+.card a:hover {
+  color: #0066cc;
+  transform: scale(1.2);
+}
+
+/* 4. القوائم ترجع يمين للعربي */
+ol, ul {
+  direction: rtl;
+  text-align: right;
+  padding-right: 25px;
+}
+
+li {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+/* 5. الفوتر أكبر وأجمل */
+footer {
+  text-align: center;
+  margin-top: 15px;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+footer span {
+  color: #0066cc;
+}
+/* تخلي عناوين الكروت على اليمين */
+.card h2 {
+  text-align: right;
+  direction: rtl;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e8f4f8;
+  padding-bottom: 8px;
+}
+
+/* الفقرة تخليها يمين برضو عشان عربي */
+.card p {
+  text-align: center;
+  direction: rtl;
+  line-height: 1.8;
+}
+/* تلوين كلمة مبتدئ 
+.card span {
+  color: #ff6600;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 5px;
+}*/
+.copyrit {
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px;
+  text-align: center;
+}
+/* تلوين مبتدئ + Trifi */
+.card span {
+  color: #0066cc;
+  font-weight: 700;
+  background-color: #e8f4f8;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+/* ستايل الفوتر */
+footer p {
+  text-align: center;
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+footer span {
+  background-color: transparent; /* نشيل الخلفية من Trifi عشان ما تتلخبط */
+  color: #0066cc;
+  padding: 0;
+}
