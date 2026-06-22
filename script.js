@@ -60,7 +60,7 @@ const popupData = {
 };
 
 // لما تضغط على الكرت - مع تايب رايتر
-document.querySelectorAll('.cards.card').forEach((card, index) => {
+document.querySelectorAll('.cards .card').forEach((card, index) => {
   card.style.cursor = 'pointer';
   card.addEventListener('click', () => {
     const titleEl = document.getElementById('popup-title');
@@ -102,10 +102,10 @@ fetch('https://api.countapi.xyz/hit/trifibelkacem.github.io/visits')
     document.getElementById('visits').textContent = data.value;
   });
   
-   // تايب رايتر للكروت
+   // تايب رايتر يشتغل مع السكرول
 const cardTexts = [
   "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻",
-  "", // الكرت الثاني فيه قائمة فما نحتاجه
+  "", // الكرت الثاني قائمة
   "قريباً... أول مشروع لي على GitHub 🚀",
   "اضغط للمزيد وخلينا نتواصل 📧"
 ];
@@ -120,14 +120,25 @@ function typeCardText(element, text, speed = 50) {
       setTimeout(typing, speed);
     }
   }
-  setTimeout(typing, 500); // تأخير نص ثانية قبل يبدأ
+  typing();
 }
 
-window.addEventListener('load', () => {
-  document.querySelectorAll('.type-text').forEach((span, index) => {
-    if(cardTexts[index]) {
-      typeCardText(span, cardTexts[index], 45);
+// نراقب الكروت متى تدخل الشاشة
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const span = entry.target.querySelector('.type-text');
+      const index = Array.from(document.querySelectorAll('.cards .card')).indexOf(entry.target);
+
+      if(span && cardTexts[index] &&!span.classList.contains('typed')) {
+        span.classList.add('typed'); // عشان ما يعيد الكتابة
+        setTimeout(() => typeCardText(span, cardTexts[index], 45), 300);
+      }
     }
   });
+}, { threshold: 0.5 }); // 50% من الكرت لازم يبان
+
+// نربط المراقب بكل كرت
+document.querySelectorAll('.cards .card').forEach(card => {
+  observer.observe(card);
 });
-  
