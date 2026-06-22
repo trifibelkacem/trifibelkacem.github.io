@@ -451,3 +451,32 @@ body.dark.type-text {
  0%, 50% { border-left-color: #0066cc; }
  51%, 100% { border-left-color: transparent; }
 }
+/* مؤشر التايب رايتر للكروت */
+.type-text {
+  border-left: 2px solid #0066cc;
+  animation: blink 0.7s infinite;
+  padding-right: 3px;
+  white-space: pre-wrap;
+}
+
+/* مؤشر الـ popup */
+#popup-text {
+  border-left: 2px solid #0066cc;
+  animation: blink 0.7s infinite;
+  padding-right: 3px;
+  min-height: 80px;
+  text-align: right;
+  direction: rtl;
+  line-height: 1.8;
+}
+
+@keyframes blink {
+ 0%, 50% { border-left-color: #0066cc; }
+ 51%, 100% { border-left-color: transparent; }
+}
+
+/* الوضع الليلي */
+body.dark .type-text,
+body.dark #popup-text {
+  border-left-color: #4a7bff;
+}
