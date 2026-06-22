@@ -1,4 +1,4 @@
-/* 1. الجسم + التوسيط + العرض الكامل */
+/* 1. الجسم + التوسيط + الفوتر تحت */
 body {
   background-color: #e8f4f8;
   font-family: 'Cairo', sans-serif;
@@ -7,13 +7,14 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* يوسّط الكروت كلها */
+  align-items: center;
   min-height: 100vh;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 img {
@@ -210,7 +211,7 @@ body.dark .card span {
   color: #66aaff;
 }
 /* حاوية المطر */
-.rain {
+#rain {
   position: fixed;
   top: 0;
   left: 0;
@@ -265,7 +266,7 @@ body.dark .drop {
   animation: scaleUp 0.3s;
 }
 
-body.dark.popup-content {
+body.dark .popup-content {
   background: #2a2a4a;
   color: #e0e0e0;
 }
@@ -301,4 +302,152 @@ body.dark.popup-content {
 
 body.dark .cv-btn {
   background: #4a7bff;
+}
+.contact-form {
+  margin-top: 60px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  background: white;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #2a2a4a;
+  border-color: #444;
+  color: white;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+}
+
+body.dark .contact-form button {
+  background: #4a7bff;
+}
+
+.contact-form {
+  margin-top: 60px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  background: white;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #2a2a4a;
+  border-color: #444;
+  color: white;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+}
+
+body.dark .contact-form button {
+  background: #4a7bff;
+}
+.site-footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.05);
+  border-top: 2px solid #0066cc;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.site-footer span {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+body.dark .site-footer {
+  background: rgba(255,255,255,0.05);
+  border-top: 2px solid #4a7bff;
+}
+
+body.dark .site-footer span {
+  color: #4a7bff;
+}
+.site-footer {
+  margin-top: auto;
+}
+#popup-text {
+  min-height: 80px;
+  text-align: right;
+  direction: rtl;
+  line-height: 1.8;
+  border-left: 2px solid #0066cc;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+ 0%, 50% { border-left-color: #0066cc; }
+ 51%, 100% { border-left-color: transparent; }
+}
+
+body.dark #popup-text {
+  border-left-color: #4a7bff;
+}
+.type-text {
+  border-left: 2px solid #0066cc;
+  animation: blink 0.7s infinite;
+  padding-right: 3px;
+}
+
+body.dark.type-text {
+  border-left-color: #4a7bff;
+}
+
+@keyframes blink {
+ 0%, 50% { border-left-color: #0066cc; }
+ 51%, 100% { border-left-color: transparent; }
 }

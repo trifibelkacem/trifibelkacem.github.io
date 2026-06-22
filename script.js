@@ -6,13 +6,13 @@ rainSound.volume = 0.2; // صوت خفيف 20%
 
 btn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
-  
+
   if(document.body.classList.contains('dark')) {
     btn.textContent = '☀️ الوضع النهاري';
-    rainSound.play(); // شغل المطر
+    rainSound.play().catch(() => {}); // شغل المطر - catch عشان ما يطلع خطأ
   } else {
     btn.textContent = '🌙 الوضع الليلي';
-    rainSound.pause(); // وقف المطر
+    rainSound.pause();
     rainSound.currentTime = 0;
   }
 });
@@ -31,11 +31,9 @@ function typeWriter() {
   }
 }
 
-// المطر البصري
+// المطر البصري - نستخدم #rain اللي في HTML
 function createRain() {
-  const rain = document.createElement('div');
-  rain.className = 'rain';
-  document.body.appendChild(rain);
+  const rain = document.getElementById('rain'); // بدل createElement
 
   function makeDrop() {
     const drop = document.createElement('div');
@@ -53,21 +51,37 @@ window.onload = () => {
   typeWriter();
   createRain();
 };
-/// بيانات كل كرت
+
 const popupData = {
- 0: {title: "مشاريعي", text: "هنا بعرض كل المشاريع اللي اشتغلت عليها. قريباً رابط GitHub لكل مشروع 🚀"},
- 1: {title: "مهاراتي", text: "HTML, CSS, JavaScript, Python. ولسه أتعلم أشياء جديدة كل يوم 💻"},
- 2: {title: "تواصل معي", text: "تقدر تتواصل عبر GitHub أو تنتظر أضيف البريد قريباً 📧"},
- 3: {title: "نبذة عني", text: "أنا بلقاسم طريفي، مطور مبتدئ شغوف ببناء أشياء مفيدة على الويب ✨"}
+ 0: {title: "معلومات شخصية", text: "أنا بلقاسم طريفي من الشلف، الجزائر. مبرمج مبتدئ أحب أتعلم كل يوم وأبني مشاريع تفيد الناس 💻"},
+ 1: {title: "هواياتي", text: "أحب القراءة والكتابة، ودراسة العلوم الإسلامية، والبرمجة. وأكيد استكشاف ثقافات مختلفة 🌍"},
+ 2: {title: "مشاريعي", text: "لسه في البداية لكن عندي شغف كبير. قريباً بتلاقي مشاريعي على GitHub 🚀"},
+ 3: {title: "تواصل معي", text: "اضغط على أيقونات السوشيال فوق أو استخدم الفورم تحت. أرد عليك بأسرع وقت 📧"}
 };
 
-// لما تضغط على الكرت
-document.querySelectorAll('.card').forEach((card, index) => {
+// لما تضغط على الكرت - مع تايب رايتر
+document.querySelectorAll('.cards.card').forEach((card, index) => {
   card.style.cursor = 'pointer';
   card.addEventListener('click', () => {
-    document.getElementById('popup-title').textContent = popupData[index].title;
-    document.getElementById('popup-text').textContent = popupData[index].text;
+    const titleEl = document.getElementById('popup-title');
+    const textEl = document.getElementById('popup-text');
+
+    titleEl.textContent = popupData[index].title;
+    textEl.textContent = ''; // نفرغ النص أول
+
     document.getElementById('popup').style.display = 'flex';
+
+    // تايب رايتر للنص
+    const text = popupData[index].text;
+    let i = 0;
+    function typePopup() {
+      if(i < text.length) {
+        textEl.textContent += text.charAt(i);
+        i++;
+        setTimeout(typePopup, 40); // 40ms = سرعة الكتابة
+      }
+    }
+    typePopup();
   });
 });
 
@@ -80,9 +94,40 @@ function closePopup() {
 document.getElementById('popup').addEventListener('click', (e) => {
   if(e.target.id === 'popup') closePopup();
 });
+
 // عداد الزيارات
 fetch('https://api.countapi.xyz/hit/trifibelkacem.github.io/visits')
-  .then(res => res.json())
-  .then(data => {
+ .then(res => res.json())
+ .then(data => {
     document.getElementById('visits').textContent = data.value;
   });
+  
+   // تايب رايتر للكروت
+const cardTexts = [
+  "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻",
+  "", // الكرت الثاني فيه قائمة فما نحتاجه
+  "قريباً... أول مشروع لي على GitHub 🚀",
+  "اضغط للمزيد وخلينا نتواصل 📧"
+];
+
+function typeCardText(element, text, speed = 50) {
+  let i = 0;
+  element.textContent = '';
+  function typing() {
+    if(i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  setTimeout(typing, 500); // تأخير نص ثانية قبل يبدأ
+}
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.type-text').forEach((span, index) => {
+    if(cardTexts[index]) {
+      typeCardText(span, cardTexts[index], 45);
+    }
+  });
+});
+  

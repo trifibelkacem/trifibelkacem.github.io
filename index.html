@@ -10,62 +10,76 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- عنصر المطر + الصوت -->
+    <div id='rain'></div>
+    <audio id="rainSound" loop preload="auto">
+      <source src="rain.mp3" type="audio/mpeg">
+    </audio>
+
     <button id="themeBtn">🌙 الوضع الليلي</button>
     <h1>Welcome to My Website "Trifi_Belkacem: طريفي بلقاسم"</h1>
-        <img src="belkacem.png" alt="صورة شخصية لبلقاسم طريفي"><br>
+    <img src="belkacem.png" alt="صورة شخصية لبلقاسم طريفي"><br>
+    
     <div class="card">    
       <a href="https://github.com/trifibelkacem" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/trifi-belkacem-aa5677134/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://www.facebook.com/tryfyblqsm/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
       <a href="https://www.google.com/?authuser=0" target="_blank" title="Google"><i class="fab fa-google"></i></a>
     </div>
+
+    <!-- كل الكروت لازم تكون داخل div.cards عشان الpopup -->
+    
     <div class="card">
-       <h2>معلومات شخصية</h2>
-    <p>أنا بلقاسم طريفي،<span>مبرمج مبتدئ </span>من جنسية جزائرية، أحب البرمجة والقراءة وكتابة المقالات ، وأحب الرياضيات، وكذا تعلم اللغات الجديدة واكتشاف ثقافات مختلفة.
-         يقيم في الظهرة الشلف .
-    </p>
+        <h2>معلومات شخصية</h2>
+        <p>أنا بلقاسم طريفي،<span>مبرمج مبتدئ </span>من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻
+          <span class="type-text"></span>
+        </p>
     </div>
     <div class="card">
-      <h2> هواياتي</h2>
-    <ol>
-     <li>القراءة والكتابة
-      <ul>
-         <li>روايات</li>
-         <li>مقالات تقنية</li>
-      </ul>
-     </li>
-     <li>اسلاميات
-      <ul>      
-        <li>القرآن الكريم وعلومه</li>
-        <li>التفسير</li>
-        <li>السنة النبوية</li>
-      </ul>
-     </li>
-        <li>البرمجة والثقافات المختلفة </li>
-    </ol>
+        <h2>هواياتي</h2>
+        <ol>
+          <li>القراءة والكتابة
+            <ul><li>روايات</li><li>مقالات تقنية</li></ul>
+          </li>
+          <li>اسلاميات
+            <ul><li>القرآن الكريم وعلومه</li><li>التفسير</li></ul>
+          </li>
+          <li>البرمجة والثقافات المختلفة</li>
+        </ol>
+        <p><span class="type-text"></span></p>
     </div>
-    <div class="card">
-    <footer>
-        <p>جميع الحقوق محفوظة : By<span> Trifi</span> Belkacem: 2026</p>
-    </footer>
-    </div>
-    <div class="cards">
-  <!-- الكروت حقتك هنا -->
+    <div class="card"><h2>مشاريعي</h2><p><span class="type-text"></span></p></div>
+    <div class="card"><h2>تواصل</h2><p><span class="type-text"></span></p></div>
+    
+
+    <!-- زر تحميل CV -->
+    <a href="CV-Belkacem.pdf" download class="cv-btn">📄 تحميل السيرة الذاتية</a>
+
+    <!-- فورم التواصل واحد فقط -->
+    <div class="contact-form">
+      <h3>📩 تواصل معي</h3>
+      <form action="https://formspree.io/f/xlgyryeb" method="POST">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="email" name="email" placeholder="إيميلك" required>
+        <textarea name="message" placeholder="رسالتك..." rows="4" required></textarea>
+        <button type="submit">إرسال</button>
+      </form>
     </div>
 
-<a href="CV-Belkacem.pdf" download class="cv-btn">📄 تحميل السيرة الذاتية</a>
     <!-- النافذة المنبثقة -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <h3 id="popup-title">عنوان</h3>
-    <p id="popup-text">تفاصيل أكثر هنا</p>
-    <button class="close-btn" onclick="closePopup()">إغلاق</button>
-  </div>
-</div>
-<!-- عداد الزيارات -->
-<footer style="margin-top: 50px; opacity: 0.7; font-size: 14px;">
-  زوار الموقع: <span id="visits">0</span>
-</footer>
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3 id="popup-title">عنوان</h3>
+        <p id="popup-text">تفاصيل أكثر هنا</p>
+        <button class="close-btn" onclick="closePopup()">إغلاق</button>
+      </div>
+    </div>
+
+    <!-- فوتر واحد فقط فيه كل شي -->
+  <footer class="site-footer">
+    <p>زوار الموقع: <span id="visits">0</span></p>
+    <p>جميع الحقوق محفوظة © By <span>Trifi Belkacem</span> 2026</p>
+  </footer>
 
     <script src="script.js"></script>
 </body>
