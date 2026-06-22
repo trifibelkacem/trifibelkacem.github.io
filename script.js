@@ -102,12 +102,12 @@ fetch('https://api.countapi.xyz/hit/trifibelkacem.github.io/visits')
     document.getElementById('visits').textContent = data.value;
   });
   
-   // تايب رايتر يشتغل مع السكرول
+   // تايب رايتر يشتغل مع السكرول - كل كرت بسرعة مختلفة
 const cardTexts = [
-  "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻",
-  "", // الكرت الثاني قائمة
-  "قريباً... أول مشروع لي على GitHub 🚀",
-  "اضغط للمزيد وخلينا نتواصل 📧"
+  {text: "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻", speed: 30}, // سريع
+  {text: "", speed: 50}, // الكرت الثاني قائمة فاضي
+  {text: "قريباً... أول مشروع لي على GitHub 🚀", speed: 70}, // بطيء تشويق
+  {text: "اضغط للمزيد وخلينا نتواصل 📧", speed: 45} // وسط
 ];
 
 function typeCardText(element, text, speed = 50) {
@@ -130,9 +130,9 @@ const observer = new IntersectionObserver((entries) => {
       const span = entry.target.querySelector('.type-text');
       const index = Array.from(document.querySelectorAll('.cards .card')).indexOf(entry.target);
 
-      if(span && cardTexts[index] &&!span.classList.contains('typed')) {
+      if(span && cardTexts[index].text &&!span.classList.contains('typed')) {
         span.classList.add('typed'); // عشان ما يعيد الكتابة
-        setTimeout(() => typeCardText(span, cardTexts[index], 45), 300);
+        setTimeout(() => typeCardText(span, cardTexts[index].text, cardTexts[index].speed), 300);
       }
     }
   });
