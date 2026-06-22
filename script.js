@@ -1,15 +1,14 @@
-// زر الوضع الليلي + صوت المطر
+// ========== 1. زر الوضع الليلي + صوت المطر ==========
 const btn = document.getElementById('themeBtn');
 const rainSound = new Audio('rain.mp3');
 rainSound.loop = true;
-rainSound.volume = 0.2; // صوت خفيف 20%
+rainSound.volume = 0.2;
 
 btn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
-
   if(document.body.classList.contains('dark')) {
     btn.textContent = '☀️ الوضع النهاري';
-    rainSound.play().catch(() => {}); // شغل المطر - catch عشان ما يطلع خطأ
+    rainSound.play().catch(() => {});
   } else {
     btn.textContent = '🌙 الوضع الليلي';
     rainSound.pause();
@@ -17,24 +16,72 @@ btn.addEventListener('click', () => {
   }
 });
 
-// كتابة الاسم حرف
-const h1 = document.querySelector('h1');
-const text = h1.textContent;
-h1.textContent = '';
+// ========== 2. صوت الطقطقة للكتابة ==========
+const typeSound = new Audio('type.mp3');
+typeSound.volume = 0.15; // صوت خفيف
 
+function playTypeSound() {
+  typeSound.currentTime = 0;
+  typeSound.play().catch(() => {});
+}
+
+// ========== 3. تايب رايتر العنوان h1 ==========
+const h1 = document.querySelector('h1');
+const nameText = h1.textContent;
+h1.textContent = '';
 let i = 0;
+
 function typeWriter() {
-  if(i < text.length) {
-    h1.textContent += text.charAt(i);
+  if(i < nameText.length) {
+    h1.textContent += nameText.charAt(i);
+    playTypeSound();
     i++;
     setTimeout(typeWriter, 80);
   }
 }
 
-// المطر البصري - نستخدم #rain اللي في HTML
-function createRain() {
-  const rain = document.getElementById('rain'); // بدل createElement
+// ========== 4. تايب رايتر الكروت مع السكرول + سرعة مختلفة ==========
+const cardTexts = [
+  {text: "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻", speed: 30}, // سريع
+  {text: "", speed: 50}, // الكرت الثاني قائمة فاضي
+  {text: "قريباً... أول مشروع لي على GitHub 🚀", speed: 70}, // بطيء
+  {text: "اضغط للمزيد وخلينا نتواصل 📧", speed: 45} // وسط
+];
 
+function typeCardText(element, text, speed) {
+  let j = 0;
+  element.textContent = '';
+  function typing() {
+    if(j < text.length) {
+      element.textContent += text.charAt(j);
+      playTypeSound();
+      j++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const span = entry.target.querySelector('.type-text');
+      const index = Array.from(document.querySelectorAll('.cards.card')).indexOf(entry.target);
+      if(span && cardTexts[index].text &&!span.classList.contains('typed')) {
+        span.classList.add('typed');
+        setTimeout(() => typeCardText(span, cardTexts[index].text, cardTexts[index].speed), 300);
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.cards.card').forEach(card => {
+  observer.observe(card);
+});
+
+// ========== 5. المطر البصري ==========
+function createRain() {
+  const rain = document.getElementById('rain');
   function makeDrop() {
     const drop = document.createElement('div');
     drop.className = 'drop';
@@ -47,11 +94,7 @@ function createRain() {
   setInterval(makeDrop, 50);
 }
 
-window.onload = () => {
-  typeWriter();
-  createRain();
-};
-
+// ========== 6. البوب اب + عداد الزيارات ==========
 const popupData = {
  0: {title: "معلومات شخصية", text: "أنا بلقاسم طريفي من الشلف، الجزائر. مبرمج مبتدئ أحب أتعلم كل يوم وأبني مشاريع تفيد الناس 💻"},
  1: {title: "هواياتي", text: "أحب القراءة والكتابة، ودراسة العلوم الإسلامية، والبرمجة. وأكيد استكشاف ثقافات مختلفة 🌍"},
@@ -59,86 +102,43 @@ const popupData = {
  3: {title: "تواصل معي", text: "اضغط على أيقونات السوشيال فوق أو استخدم الفورم تحت. أرد عليك بأسرع وقت 📧"}
 };
 
-// لما تضغط على الكرت - مع تايب رايتر
-document.querySelectorAll('.cards .card').forEach((card, index) => {
+document.querySelectorAll('.cards.card').forEach((card, index) => {
   card.style.cursor = 'pointer';
   card.addEventListener('click', () => {
     const titleEl = document.getElementById('popup-title');
     const textEl = document.getElementById('popup-text');
-
     titleEl.textContent = popupData[index].title;
-    textEl.textContent = ''; // نفرغ النص أول
-
+    textEl.textContent = '';
     document.getElementById('popup').style.display = 'flex';
 
-    // تايب رايتر للنص
-    const text = popupData[index].text;
-    let i = 0;
+    let k = 0;
     function typePopup() {
-      if(i < text.length) {
-        textEl.textContent += text.charAt(i);
-        i++;
-        setTimeout(typePopup, 40); // 40ms = سرعة الكتابة
+      if(k < popupData[index].text.length) {
+        textEl.textContent += popupData[index].text.charAt(k);
+        playTypeSound();
+        k++;
+        setTimeout(typePopup, 40);
       }
     }
     typePopup();
   });
 });
 
-// إغلاق النافذة
 function closePopup() {
   document.getElementById('popup').style.display = 'none';
 }
-
-// إغلاق لو ضغطت خارج النافذة
 document.getElementById('popup').addEventListener('click', (e) => {
   if(e.target.id === 'popup') closePopup();
 });
 
-// عداد الزيارات
 fetch('https://api.countapi.xyz/hit/trifibelkacem.github.io/visits')
- .then(res => res.json())
- .then(data => {
+.then(res => res.json())
+.then(data => {
     document.getElementById('visits').textContent = data.value;
   });
-  
-   // تايب رايتر يشتغل مع السكرول - كل كرت بسرعة مختلفة
-const cardTexts = [
-  {text: "أنا بلقاسم طريفي، مبرمج مبتدئ من الشلف، الجزائر. أحب البرمجة والقراءة وبناء مشاريع مفيدة 💻", speed: 30}, // سريع
-  {text: "", speed: 50}, // الكرت الثاني قائمة فاضي
-  {text: "قريباً... أول مشروع لي على GitHub 🚀", speed: 70}, // بطيء تشويق
-  {text: "اضغط للمزيد وخلينا نتواصل 📧", speed: 45} // وسط
-];
 
-function typeCardText(element, text, speed = 50) {
-  let i = 0;
-  element.textContent = '';
-  function typing() {
-    if(i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, speed);
-    }
-  }
-  typing();
-}
-
-// نراقب الكروت متى تدخل الشاشة
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      const span = entry.target.querySelector('.type-text');
-      const index = Array.from(document.querySelectorAll('.cards .card')).indexOf(entry.target);
-
-      if(span && cardTexts[index].text &&!span.classList.contains('typed')) {
-        span.classList.add('typed'); // عشان ما يعيد الكتابة
-        setTimeout(() => typeCardText(span, cardTexts[index].text, cardTexts[index].speed), 300);
-      }
-    }
-  });
-}, { threshold: 0.5 }); // 50% من الكرت لازم يبان
-
-// نربط المراقب بكل كرت
-document.querySelectorAll('.cards .card').forEach(card => {
-  observer.observe(card);
-});
+// ========== 7. تشغيل الكل لما الصفحة تحمل ==========
+window.onload = () => {
+  typeWriter();
+  createRain();
+};
