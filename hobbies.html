@@ -9,12 +9,12 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- نفس الـ Navbar انسخه من index.html -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
          <img src="logo.png" alt="بلقاسم طريفي">
-        <!-- <span>بلقاسم طريفي</span> -->
+      <!-- <span>بلقاسم طريفي</span> -->
       </a>
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
@@ -26,41 +26,25 @@
       <button id="themeBtn">🌙 الوضع الليلي</button>
     </div>
   </nav>
-   <!-- صفحة الهبوط بصورة yez.jpg -->
-  <section class="hero">
-    <img src="yez.jpg" alt="منظر من الشلف" class="hero-img">
-    <div class="hero-text">
-      <h1>مرحباً، أنا بلقاسم طريفي</h1>
-      <p>مبرمج مبتدئ من الشلف، الجزائر</p>
-      <a href="#main" class="btn">تعرف علي أكثر</a>
-    </div>
-  </section>
+  <!-- هيدر للصفحات الداخلية -->
+<header class="page-hero">
+  <img src="yez.jpg" alt="خلفية" class="page-hero-img">
+  <h1>هواياتي</h1> <!-- ضيف هذا -->
+</header>
 
-  <!-- المحتوى الرئيسي - الكروت -->
-  <main id="main" class="cards">
-    <div class="card">
-      <h2>معلومات شخصية</h2>
-      <p>أنا بلقاسم طريفي من الشلف... <span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>هواياتي</h2>
-      <ol>
-        <li>القراءة</li>
-        <li>البرمجة</li>
-        <li>العلوم الإسلامية</li>
-      </ol>
-    </div>
-    <div class="card">
-      <h2>مشاريعي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>تواصل معي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
-  </main>
-
-  <footer>
+<!-- محتوى صفحة هواياتي فقط -->
+<main class="page-content">
+  <p>أحب القراءة والكتابة، ودراسة العلوم الإسلامية، والبرمجة. وأكيد استكشاف ثقافات مختلفة 🌍</p>
+  <!-- احذف h1 من هنا -->
+  <ul>
+    <li>📚 القراءة: روايات، كتب تطوير الذات، تقنية</li>
+    <li>💻 البرمجة: بناء مواقع وتطبيقات تفيد الناس</li>
+    <li>🕌 العلوم الإسلامية: أتعلم كل يوم شي جديد</li>
+    <li>🌍 السفر واستكشاف الثقافات</li>
+  </ul>
+</main>
+  
+<footer>
   <div class="footer-content">
     <div class="footer-col">
       <h3>عن التعليمية </h3>
@@ -94,16 +78,6 @@
     <span class="trifi">Copyright_© 2026 _<span>Trifi</span></span>
   </div>
 </footer>
-
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2 id="popup-title"></h2>
-      <p id="popup-text"></p>
-    </div>
-  </div>
-
-  <div id="rain"></div>
   <script src="script.js"></script>
 </body>
 </html>

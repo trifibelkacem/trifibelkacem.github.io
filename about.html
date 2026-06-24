@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التعليمية</title>
+  <title>من نحن - التعليمية  </title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- انسخ الـ Navbar كامل من hobbies.html -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
-         <img src="logo.png" alt="بلقاسم طريفي">
-        <!-- <span>بلقاسم طريفي</span> -->
+      <img src="logo.png" alt="بلقاسم طريفي">
+       <!-- <span>بلقاسم طريفي</span> -->
       </a>
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
@@ -26,38 +26,17 @@
       <button id="themeBtn">🌙 الوضع الليلي</button>
     </div>
   </nav>
-   <!-- صفحة الهبوط بصورة yez.jpg -->
-  <section class="hero">
-    <img src="yez.jpg" alt="منظر من الشلف" class="hero-img">
-    <div class="hero-text">
-      <h1>مرحباً، أنا بلقاسم طريفي</h1>
-      <p>مبرمج مبتدئ من الشلف، الجزائر</p>
-      <a href="#main" class="btn">تعرف علي أكثر</a>
-    </div>
-  </section>
+  <!-- هيدر للصفحات الداخلية -->
+<header class="page-hero">
+  <img src="yez.jpg" alt="خلفية" class="page-hero-img">
+  <h1>من نحن</h1>
+</header>
 
-  <!-- المحتوى الرئيسي - الكروت -->
-  <main id="main" class="cards">
-    <div class="card">
-      <h2>معلومات شخصية</h2>
-      <p>أنا بلقاسم طريفي من الشلف... <span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>هواياتي</h2>
-      <ol>
-        <li>القراءة</li>
-        <li>البرمجة</li>
-        <li>العلوم الإسلامية</li>
-      </ol>
-    </div>
-    <div class="card">
-      <h2>مشاريعي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>تواصل معي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
+  <main class="page-content">
+    <h1>من نحن</h1>
+    <p>أنا بلقاسم طريفي من ولاية الشلف، الجزائر. مبرمج مبتدئ شغفي هو بناء مشاريع تخدم الناس وتسهل حياتهم.</p>
+    <p>بدأت رحلتي في البرمجة من الصفر، وأتعلم كل يوم تقنية جديدة. هدفي إني أطور نفسي وأقدم محتوى ومشاريع مفيدة للمجتمع العربي.</p>
+    <p>أؤمن إن التعلم المستمر هو مفتاح النجاح، ولهذا تشوفني دايم أقرأ وأجرب وأبني.</p>
   </main>
 
   <footer>
@@ -93,17 +72,8 @@
     <span class="copy">جميع الحقوق محفوظة لـ <span>طريفي</span></span>
     <span class="trifi">Copyright_© 2026 _<span>Trifi</span></span>
   </div>
-</footer>
+  </footer>
 
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2 id="popup-title"></h2>
-      <p id="popup-text"></p>
-    </div>
-  </div>
-
-  <div id="rain"></div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التعليمية</title>
+  <title>اتفاقية الاستخدام -  التعليمية</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- نفس الـ Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
-         <img src="logo.png" alt="بلقاسم طريفي">
-        <!-- <span>بلقاسم طريفي</span> -->
+      <img src="logo.png" alt="بلقاسم طريفي">
+      <!-- <span>بلقاسم طريفي</span> -->
       </a>
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
@@ -26,38 +26,21 @@
       <button id="themeBtn">🌙 الوضع الليلي</button>
     </div>
   </nav>
-   <!-- صفحة الهبوط بصورة yez.jpg -->
-  <section class="hero">
-    <img src="yez.jpg" alt="منظر من الشلف" class="hero-img">
-    <div class="hero-text">
-      <h1>مرحباً، أنا بلقاسم طريفي</h1>
-      <p>مبرمج مبتدئ من الشلف، الجزائر</p>
-      <a href="#main" class="btn">تعرف علي أكثر</a>
-    </div>
-  </section>
+  <!-- هيدر للصفحات الداخلية -->
+<header class="page-hero">
+  <img src="yez.jpg" alt="خلفية" class="page-hero-img">
+  <h1>اتفاقية الاستخدام</h1> 
+</header>    
 
-  <!-- المحتوى الرئيسي - الكروت -->
-  <main id="main" class="cards">
-    <div class="card">
-      <h2>معلومات شخصية</h2>
-      <p>أنا بلقاسم طريفي من الشلف... <span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>هواياتي</h2>
-      <ol>
-        <li>القراءة</li>
-        <li>البرمجة</li>
-        <li>العلوم الإسلامية</li>
-      </ol>
-    </div>
-    <div class="card">
-      <h2>مشاريعي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
-    <div class="card">
-      <h2>تواصل معي</h2>
-      <p><span class="type-text"></span></p>
-    </div>
+  <main class="page-content">
+    <h1>اتفاقية الاستخدام</h1>
+    <p>باستخدامك لهذا الموقع، أنت توافق على الشروط التالية:</p>
+    <h3>1. المحتوى</h3>
+    <p>جميع المحتويات في الموقع ملك لبلقاسم طريفي. مسموح تشارك الروابط، لكن يمنع نسخ المحتوى بدون إذن.</p>
+    <h3>2. الاستخدام</h3>
+    <p>الموقع للأغراض التعليمية والتعريفية فقط. يمنع استخدام الموقع بأي طريقة تضر به أو بزوار آخرين.</p>
+    <h3>3. التعديلات</h3>
+    <p>أحتفظ بحق تعديل هذه الاتفاقية في أي وقت. آخر تحديث: أبريل 2026.</p>
   </main>
 
   <footer>
@@ -95,15 +78,6 @@
   </div>
 </footer>
 
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2 id="popup-title"></h2>
-      <p id="popup-text"></p>
-    </div>
-  </div>
-
-  <div id="rain"></div>
   <script src="script.js"></script>
 </body>
 </html>

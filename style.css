@@ -1,135 +1,190 @@
-/* 1. الجسم + التوسيط + الفوتر تحت */
-body {
-  background-color: #e8f4f8;
-  font-family: 'Cairo', sans-serif;
-  color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap');
+
+* {
   margin: 0;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #2c3e50;
-  margin-bottom: 20px;
-}
-
-/* 2. الكروت تتمدد وتتوسط */
-.card {
-  background: white;
-  padding: 25px;
-  margin: 15px 0;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 90%; /* ياخذ 90% من عرض الشاشة */
-  max-width: 700px; /* بس ما يتعدى 700px */
-}
-
-/* 3. أيقونات السوشيال */
-.card a {
-  display: inline-block;
-  margin: 15px;
-  font-size: 40px;
-  color: #2c3e50;
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: #e8f4f8;
+  color: #333;
+  padding-top: 70px; /* ارتفاع النافبار */
   transition: 0.3s;
 }
 
-.card a:hover {
-  color: #0066cc;
-  transform: scale(1.2);
+/* ===== Navbar ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* 4. القوائم ترجع يمين للعربي */
-ol, ul {
-  direction: rtl;
-  text-align: right;
-  padding-right: 25px;
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
 }
 
-li {
-  margin: 10px 0;
-  line-height: 1.8;
-}
-
-/* 5. الفوتر أكبر وأجمل */
-footer {
-  text-align: center;
-  margin-top: 15px;
-  color: #2c3e50;
-  font-size: 18px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #1a1a1a;
   font-weight: 700;
+  font-size: 19px;
+  font-family: 'Cairo', sans-serif;
 }
 
-footer span {
-  color: #0066cc;
+.logo img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0077ff;
+  transition: 0.3s;
 }
-/* تخلي عناوين الكروت على اليمين */
-.card h2 {
-  text-align: right;
-  direction: rtl;
-  margin-bottom: 15px;
-  color: #2c3e50;
-  border-bottom: 2px solid #e8f4f8;
-  padding-bottom: 8px;
+.logo img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0,119,255,0.4);
 }
-
-/* الفقرة تخليها يمين برضو عشان عربي */
-.card p {
-  text-align: center;
-  direction: rtl;
-  line-height: 1.8;
-}
-/* تلوين كلمة مبتدئ 
-.card span {
-  color: #ff6600;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 5px;
-}*/
-.copyrit {
-  font-size: 14px;
-  color: #999;
-  margin-top: 5px;
-  text-align: center;
-}
-/* تلوين مبتدئ + Trifi */
-.card span {
-  color: #0066cc;
-  font-weight: 700;
-  background-color: #e8f4f8;
-  padding: 2px 6px;
-  border-radius: 5px;
+@media (max-width: 768px) {
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
 }
 
-/* ستايل الفوتر */
-footer p {
-  text-align: center;
-  margin: 0;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
   font-size: 16px;
-  color: #555;
+  transition: 0.3s;
 }
 
-footer span {
-  background-color: transparent; /* نشيل الخلفية من Trifi عشان ما تتلخبط */
-  color: #0066cc;
-  padding: 0;
+.nav-links a:hover {
+  color: #0077ff;
 }
-/* 1. الكروت تطلع من تحت بأنيميشن لما تفتح الصفحة */
+
+/* زر الوضع الليلي - تصميم التجوال */
+#themeBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+#themeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* ===== الهبوط فل سكرين مستطيل ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin-top: -70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  z-index: -1;
+}
+
+.hero-text {
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero-text h1 {
+  font-size: 4.5rem;
+  margin-bottom: 25px;
+  font-family: 'Cairo', sans-serif;
+  text-shadow: 0 5px 30px rgba(0,0,0,0.8);
+}
+
+.hero-text p {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  text-shadow: 0 3px 20px rgba(0,0,0,0.7);
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #0077ff, #00c6ff);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,119,255,0.4);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0,119,255,0.6);
+}
+
+/* ===== الكروت مع أنيميشن ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transition: 0.3s;
   animation: slideUp 0.6s ease-out;
 }
+
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.3s; }
 
 @keyframes slideUp {
   from {
@@ -142,75 +197,81 @@ footer span {
   }
 }
 
-/* نخلي كل كرت يتأخر شوي عن اللي قبله */
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.2s; }
-.card:nth-child(4) { animation-delay: 0.3s; }
-
-/* 2. الكرت يكبر شوي لما تمر عليه بالماوس */
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: 0.3s;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 
-/* 3. أيقونات السوشيال تدور لما تمر عليها */
-.card a i {
-  transition: 0.4s;
+.card h2 {
+  color: #0077ff;
+  margin-bottom: 15px;
+  font-family: 'Cairo', sans-serif;
+  text-align: right;
+  border-bottom: 2px solid #e8f4f8;
+  padding-bottom: 8px;
 }
 
-.card a:hover i {
-  transform: rotate(360deg) scale(1.3);
+.card p {
+  text-align: right;
+  line-height: 1.8;
+}
+
+.card span {
   color: #0066cc;
+  font-weight: 700;
+  background-color: #e8f4f8;
+  padding: 2px 6px;
+  border-radius: 5px;
 }
 
-/* 4. الصورة تكبر شوي مع هالة */
-img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0,102,204,0.4);
-  transition: 0.4s;
+/* ===== هيدر الصفحات الداخلية ===== */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -70px;
+  margin-bottom: 60px;
 }
-/* زر الوضع الليلي */
-#themeBtn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50px;
-  background: #2c3e50;
+
+.page-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45);
+  z-index: -1;
+}
+
+.page-hero h1 {
   color: white;
-  cursor: pointer;
-  font-size: 16px;
-  z-index: 1000;
-  transition: 0.3s;
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-shadow: 0 5px 30px rgba(0,0,0,0.8);
+  z-index: 2;
+  font-family: 'Cairo', sans-serif;
 }
 
-#themeBtn:hover {
-  transform: scale(1.1);
+.page-content {
+  padding: 40px 20px 100px;
+  max-width: 850px;
+  margin: auto;
+  line-height: 2.2;
+  font-size: 19px;
 }
 
-/* ألوان الوضع الليلي */
-body.dark {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  color: #e0e0e0;
+
+
+footer span {
+  color: #0066cc;
+  font-weight: bold;
 }
 
-body.dark .card {
-  background: #2a2a4a;
-  color: #e0e0e0;
-}
-
-body.dark h1, 
-body.dark h2 {
-  color: #fff;
-}
-
-body.dark .card span {
-  background-color: #3a3a5a;
-  color: #66aaff;
-}
-/* حاوية المطر */
+/* ===== المطر ===== */
 #rain {
   position: fixed;
   top: 0;
@@ -221,7 +282,6 @@ body.dark .card span {
   z-index: -1;
 }
 
-/* قطرة المطر */
 .drop {
   position: absolute;
   bottom: 100%;
@@ -237,246 +297,257 @@ body.dark .card span {
   }
 }
 
-/* في الوضع الليلي نخلي المطر أزرق فاتح */
-body.dark .drop {
-  background: linear-gradient(transparent, #aaccff);
-}
-/* النافذة المنبثقة */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(5px);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  animation: fadeIn 0.3s;
-}
-
-.popup-content {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 400px;
-  text-align: center;
-  animation: scaleUp 0.3s;
-}
-
-body.dark .popup-content {
-  background: #2a2a4a;
+/* ===== الوضع الليلي ===== */
+body.dark {
+  background: #0a0a0a;
   color: #e0e0e0;
 }
 
-.close-btn {
-  margin-top: 15px;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #0066cc;
-  color: white;
-  cursor: pointer;
+body.dark .navbar {
+  background: rgba(20,20,20,0.95);
 }
 
-@keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
-@keyframes scaleUp { from {transform: scale(0.8)} to {transform: scale(1)} }
-.cv-btn {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 12px 25px;
-  background: #0066cc;
-  color: white;
+body.dark .nav-links a,
+body.dark .logo {
+  color: #e0e0e0;
+}
+
+body.dark #themeBtn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+body.dark .card {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .card span {
+  background-color: #2a2a4a;
+  color: #66aaff;
+}
+
+body.dark .drop {
+  background: linear-gradient(transparent, #aaccff);
+}
+
+body.dark footer {
+  background: #000;
+}
+
+/* ===== موبايل ===== */
+@media (max-width: 768px) {
+  .hero-text h1 { font-size: 2.5rem; }
+  .hero-text p { font-size: 1.2rem; }
+  .nav-links { gap: 15px; font-size: 14px; }
+  #themeBtn { padding: 7px 14px; font-size: 12px; }
+  .page-hero h1 { font-size: 3rem; }
+}
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-bottom .edu,
+  .footer-bottom .copy,
+  .footer-bottom .trifi {
+    text-align: center;
+    flex: unset;
+  }
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: #0077ff;
+  margin-bottom: 15px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.footer-col p, .footer-col a {
+  color: #555;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+  line-height: 2;
   transition: 0.3s;
 }
 
-.cv-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,102,204,0.4);
-}
-
-body.dark .cv-btn {
-  background: #4a7bff;
-}
-.contact-form {
-  margin-top: 60px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-family: inherit;
-  background: white;
-}
-
-body.dark .contact-form input,
-body.dark .contact-form textarea {
-  background: #2a2a4a;
-  border-color: #444;
-  color: white;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  background: #0066cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background: #0052a3;
-  transform: translateY(-2px);
-}
-
-body.dark .contact-form button {
-  background: #4a7bff;
-}
-
-.contact-form {
-  margin-top: 60px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-family: inherit;
-  background: white;
-}
-
-body.dark .contact-form input,
-body.dark .contact-form textarea {
-  background: #2a2a4a;
-  border-color: #444;
-  color: white;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  background: #0066cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background: #0052a3;
-  transform: translateY(-2px);
-}
-
-body.dark .contact-form button {
-  background: #4a7bff;
-}
-.site-footer {
-  margin-top: auto;
-  padding: 20px;
-  text-align: center;
-  background: rgba(0,0,0,0.05);
-  border-top: 2px solid #0066cc;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.site-footer span {
-  color: #0066cc;
-  font-weight: bold;
-}
-
-body.dark .site-footer {
-  background: rgba(255,255,255,0.05);
-  border-top: 2px solid #4a7bff;
-}
-
-body.dark .site-footer span {
-  color: #4a7bff;
-}
-.site-footer {
-  margin-top: auto;
-}
-#popup-text {
-  min-height: 80px;
-  text-align: right;
-  direction: rtl;
-  line-height: 1.8;
-  border-left: 2px solid #0066cc;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
- 0%, 50% { border-left-color: #0066cc; }
- 51%, 100% { border-left-color: transparent; }
-}
-
-body.dark #popup-text {
-  border-left-color: #4a7bff;
-}
-.type-text {
-  border-left: 2px solid #0066cc;
-  animation: blink 0.7s infinite;
-  padding-right: 3px;
-}
-
-body.dark.type-text {
-  border-left-color: #4a7bff;
-}
-
-@keyframes blink {
- 0%, 50% { border-left-color: #0066cc; }
- 51%, 100% { border-left-color: transparent; }
-}
-/* مؤشر التايب رايتر للكروت */
-.type-text {
-  border-left: 2px solid #0066cc;
-  animation: blink 0.7s infinite;
-  padding-right: 3px;
-  white-space: pre-wrap;
-}
-
-/* مؤشر الـ popup */
-#popup-text {
-  border-left: 2px solid #0066cc;
-  animation: blink 0.7s infinite;
-  padding-right: 3px;
-  min-height: 80px;
-  text-align: right;
-  direction: rtl;
-  line-height: 1.8;
-}
-
-@keyframes blink {
- 0%, 50% { border-left-color: #0066cc; }
- 51%, 100% { border-left-color: transparent; }
+.footer-bottom span {
+  color: #0077ff;
+  font-weight: 700;
 }
 
 /* الوضع الليلي */
-body.dark .type-text,
-body.dark #popup-text {
-  border-left-color: #4a7bff;
+body.dark .footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #aaa;
+}
+
+body.dark .footer-col p, 
+body.dark .footer-col a,
+body.dark .footer-bottom {
+  color: #aaa;
+}
+
+body.dark .footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== فوتر زجاجي فخم ===== */
+/* ===== فوتر زجاجي فخم ===== */
+footer {
+  margin-top: 100px;
+  padding: 60px 20px 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+  border-top: 3px solid #FF6347; /* كان 1px solid rgba... غيرناه للطماطم */
+  color: #333;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: #0077ff;
+  margin-bottom: 18px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 20px;
+}
+
+.footer-col p {
+  color: #444;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: #444;
+  text-decoration: none;
+  display: block;
+  margin: 8px 0;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #0077ff;
+  transform: translateX(-5px);
+}
+
+/* أيقونات التواصل */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  justify-content: flex-end;
+}
+
+.social-icons a {
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  background: rgba(0, 119, 255, 0.1);
+  color: #0077ff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  transition: 0.3s;
+  border: 1px solid rgba(0, 119, 255, 0.2);
+}
+
+.social-icons a:hover {
+  background: #0077ff;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.4);
+}
+
+.footer-bottom {
+  border-top: 2px solid #FF6347; /* كان 1px solid rgba... غيرناه */
+  padding-top: 25px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* اليمين */
+.footer-bottom .edu {
+  text-align: right;
+  flex: 1;
+}
+
+/* الوسط */
+.footer-bottom .copy {
+  text-align: center;
+  flex: 1;
+}
+/* اليسار */
+.footer-bottom .trifi {
+  text-align: left;
+  flex: 1;
+}
+.footer-bottom span {
+  color: #0077ff;
+  font-weight: 700;
+}
+/* تلوين الـ span */
+.footer-bottom .copy span {
+  color: #0077ff;
+  font-weight: 700;
+}
+.footer-bottom .trifi span {
+  color: #0077ff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+body.dark .footer-bottom .copy span,
+body.dark .footer-bottom .trifi span {
+  color: #66aaff;
+}
+/* ===== الوضع الليلي للفوتر ===== */
+body.dark footer {
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 3px solid #FF6347; /* نفس اللون */
+  color: #ccc;
+}
+
+body.dark .footer-col p, 
+body.dark .footer-col a,
+body.dark .footer-bottom {
+  color: #aaa;
+}
+
+body.dark .social-icons a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #66aaff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .social-icons a:hover {
+  background: #66aaff;
+  color: #0a0a0a;
+}
+
+body.dark .footer-bottom {
+  border-top: 2px solid #FF6347; /* نفس اللون */
+  color: #aaa;
 }
