@@ -3,80 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سياسة الخصوصية -  التعليمية </title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
+  <title>سياسة الخصوصية - التعليمية</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- نفس الـ Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="بلقاسم طريفي">
-        <!-- <span>بلقاسم طريفي</span> -->
-      </a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="بلقاسم طريفي"></a>
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="hobbies.html">هواياتي</a></li>
         <li><a href="about.html">من نحن</a></li>
         <li><a href="privacy.html">سياسة الخصوصية</a></li>
         <li><a href="terms.html">اتفاقية الاستخدام</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
       </ul>
       <button id="themeBtn">🌙 الوضع الليلي</button>
     </div>
   </nav>
-  <!-- هيدر للصفحات الداخلية -->
-<header class="page-hero">
-  <img src="yez.jpg" alt="خلفية" class="page-hero-img">
-  <h1>سياسة الخصوصية</h1> <!-- غيّر هنا -->
-</header>
+
+  <header class="page-hero">
+    <img src="yez.jpg" alt="خلفية" class="page-hero-img">
+    <h1>سياسة الخصوصية </h1>
+  </header>
 
   <main class="page-content">
-    <h1>سياسة الخصوصية</h1>
-    <p>خصوصيتك تهمني. هذا الموقع لا يجمع أي معلومات شخصية من الزوار.</p>
-    <h3>1. عداد الزيارات</h3>
-    <p>نستخدم عداد زيارات عام من countapi.xyz لحساب عدد زوار الموقع. لا يتم تخزين أي IP أو بيانات شخصية.</p>
-    <h3>2. ملفات الكوكيز</h3>
-    <p>الموقع لا يستخدم ملفات تعريف ارتباط لأغراض التتبع. فقط الوضع الليلي يحفظ تفضيلك محلياً في المتصفح.</p>
-    <h3>3. تواصلك معي</h3>
-    <p>لو تواصلت معي عبر البريد أو السوشيال، بياناتك تستخدم للرد فقط وما نشاركها مع أي طرف ثالث.</p>
+    <p>أنا بلقاسم طريفي من ولاية الشلف، الجزائر. مبرمج مبتدئ شغفي هو بناء مشاريع تخدم الناس وتسهل حياتهم.</p>
+    <p>بدأت رحلتي في البرمجة من الصفر، وأتعلم كل يوم تقنية جديدة. هدفي إني أطور نفسي وأقدم محتوى ومشاريع مفيدة للمجتمع العربي.</p>
+    <p>أؤمن إن التعلم المستمر هو مفتاح النجاح، ولهذا تشوفني دايم أقرأ وأجرب وأبني.</p>
   </main>
 
+  <!-- الفوتر -->
   <footer>
-  <div class="footer-content">
-    <div class="footer-col">
-      <h3>عن التعليمية</h3>
-      <p>البرمجة  للمبتدئين ، تبني مواقع وتطبيقات تخدم الناس وتنشر كل يوم شي جديد.</p>
-    </div>
-    
-    <div class="footer-col">
-      <h3>روابط سريعة</h3>
-      <a href="index.html">الرئيسية</a>
-      <a href="about.html">من نحن</a>
-      <a href="hobbies.html">هواياتي</a>
-      <a href="privacy.html">سياسة الخصوصية</a>
-    </div>
-    
-    <div class="footer-col">
-      <h3>تواصل معي</h3>
-      <p>📍 الشلف، الجزائر</p>
-      <p>📧 belkacem@email.com</p>
-      <div class="social-icons">
-        <a href="#" title="فيسبوك">📘</a>
-        <a href="#" title="تويتر">🐦</a>
-        <a href="#" title="انستقرام">📷</a>
-        <a href="#" title="جيت هب">💻</a>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>التنقل السريع</h3>
+        <div class="quick-links">
+          <div>
+            <strong>الرئيسية</strong>
+            <a href="index.html">الصفحة الرئيسية</a>
+          </div>
+          <div>
+            <strong>روابط سريعة</strong>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">اتصل بنا</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="terms.html">اتفاقية الاستخدام</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>هواياتي</h3>
+        <a href="hobbies.html#reading">📚 القراءة</a>
+        <a href="hobbies.html#coding">💻 البرمجة</a>
+        <a href="hobbies.html#islam">🕌 العلوم الإسلامية</a>
+        <a href="hobbies.html#travel">🌍 السفر</a>
+      </div>
+
+      <div class="footer-col left-col">
+        <h3>الأقسام</h3>
+        <a href="articles.html">📝 المقالات</a>
+        <a href="programming.html">💻 البرمجة</a>
+        <a href="islamiyat.html">🕌 الإسلاميات</a>
+        <a href="lessons.html">📖 الدروس</a>
       </div>
     </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <span class="edu">موقع التعليمية</span>
-    <span class="copy">جميع الحقوق محفوظة لـ <span>طريفي</span></span>
-    <span class="trifi">Copyright_© 2026 _<span>Trifi</span></span>
-  </div>
-</footer>
+
+    <div class="footer-bottom">
+      <span class="edu">موقع التعليمية</span>
+      <span class="copy">جميع الحقوق محفوظة لـ <span>طريفي</span></span>
+      <span class="trifi">Copyright_© 2026 _<span>Trifi</span></span>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/tryfyblqsm/" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/dahra_com" target="_blank" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/tryfyblqsm/" target="_blank" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@Trifibelkacem" target="_blank" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+      <a href="https://t.me/yezremtoor" target="_blank" aria-label="تيليجرام"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/213663449629" target="_blank" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
